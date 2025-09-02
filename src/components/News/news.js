@@ -76,6 +76,14 @@ export default class news extends Component {
         }
     }
 
+    async componentDidMount() {
+        // API call can be made here to fetch real news data
+        let Url = "https://newsapi.org/v2/everything?q=tesla&from=2025-08-02&sortBy=publishedAt&apiKey=70d0b7f4bc7c49d6927b3b7595385f6b"
+        let data = await fetch(Url);
+        let parseData = await data.json();
+        console.log(parseData);
+    }
+
     render() {
         return (
             <>
