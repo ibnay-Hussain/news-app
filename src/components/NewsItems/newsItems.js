@@ -8,7 +8,8 @@ export default class NewsItems extends Component {
     return (
       <div className='container my-1'>
         <div className="card" style={{ width: '19rem'}}>
-          <img src={imageUrl} className="card-img-top" alt="news" />
+          <img src={imageUrl} className="card-img-top" alt="news" style={{ height: '150px', objectFit: 'cover' }}
+ />
           <div className="card-body">
             <h5 className="card-title heading-limit">{title}</h5>
             <p className="card-text text-truncate-multiline">{description}</p>
