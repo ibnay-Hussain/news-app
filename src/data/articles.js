@@ -6,6 +6,7 @@ const articlesData  = [
         "name": "Www.dn.se"
       },
       "author": "TT",
+      'category':"general",
       "title": "Teslas kollaps fortsätter på svenska marknaden",
       "description": "Teslas kollaps på den svenska bilmarknaden fortsätter, medan Volvo Cars befäster sin position som förstahandsvalet bland svenska bilköpare, visar augustisiffror från Mobility Sweden.",
       "url": "https://www.dn.se/ekonomi/teslas-kollaps-fortsatter-pa-svenska-marknaden/",
@@ -18,6 +19,7 @@ const articlesData  = [
         "id": 2,
         "name": "heise online"
       },
+      'category':"sports",
       "author": "Clemens Gleich",
       "title": "Podcast Die Hupe: Tourenplanung, Fuhrparkerneuerung, Dacia Duster",
       "description": "Dieses Mal sprechen wir über moderne Tourenplanung – für Autos, Motorräder oder den Van. Sebastian hat den Fuhrpark erneuert und Clemens fuhr den Dacia Duster.",
@@ -31,6 +33,7 @@ const articlesData  = [
         "id": 3,
         "name": "heise online"
       },
+      'category':"sports",
       "author": "Clemens Gleich",
       "title": "Podcast Die Hupe: Tourenplanung, Fuhrparkerneuerung, Dacia Duster",
       "description": "Dieses Mal sprechen wir über moderne Tourenplanung – für Autos, Motorräder oder den Van. Sebastian hat den Fuhrpark erneuert und Clemens fuhr den Dacia Duster.",
@@ -44,6 +47,7 @@ const articlesData  = [
         "id": 4,
         "name": "Zive.cz"
       },
+      'category':"science",
       "author": "Filip Kůžel",
       "title": "Česko dohání Evropu, v elektromobilech jsme meziročně vyrostli o 61 %. Vítězem je Škoda, Tesla dále prohrává",
       "description": "Teslas kollaps på den svenska bilmarknaden fortsätter, medan Volvo Cars befäster sin position som förstahandsvalet bland svenska bilköpare, visar augustisiffror från Mobility Sweden.",
@@ -57,6 +61,7 @@ const articlesData  = [
         "id": 5,
         "name": "Biztoc.com"
       },
+      'category':"science",
       "author": "scmp.com",
       "title": "Tesla sees exodus of South Korean retail investors as crypto’s allure rises",
       "description": "South Korea’s retail investors are losing faith in Tesla’s stock, ramping up their selling last month amid growing disillusionment with the electric carmaker and rising interest in cryptocurrencies.\nIndividual investors in South Korea sold a net US$657 millio…",
@@ -70,6 +75,7 @@ const articlesData  = [
         "id": 6,
         "name": "Dou.ua"
       },
+      'category':"business",
       "author": "Pavlo Trepytion",
       "title": "Salesforce скоротила 4 тисячі працівників через впровадження ШІ-агентів",
       "description": "У свіжому епізоді шоу Logan Bartlett генеральний директор Salesforce Марк Беніофф розповів, що розвиток агентних ШІ дозволив йому суттєво зменшити команду підтримки та прискорити обробку потенційних клієнтів.\n\n\n\n«Це були вісім найзахопливіших місяців у моїй к…",
@@ -83,6 +89,7 @@ const articlesData  = [
         "id": 7,
         "name": "Cryptonews"
       },
+      'category':"business",
       "author": "Anas Hassan",
       "title": "South Korean Investors Dump $657M in Tesla Stock, Chase Crypto Returns Instead",
       "description": "South Korean retail investors sold a net $657 million in Tesla stock during August, marking the largest outflow since early 2023 as traders pivot toward...",
@@ -96,6 +103,7 @@ const articlesData  = [
         "id": 8,
         "name": "Hotnews.ro"
       },
+      'category':"business",
       "author": "Sebastian Jucan",
       "title": "Compania descrisă ca o „ucigașă” a Tesla s-a prăbușit răsunător pe bursă",
       "description": "Producătorul american de vehicule electrice Lucid Motors a fost nevoit să apeleze la o consolidare de 10 la 1 a acțiunilor sale pentru a respecta pragul minim de tranzacționare de 1 dolar impus companiilor listate…",
@@ -109,6 +117,7 @@ const articlesData  = [
         "id": 9,
         "name": "Businessinsider.de"
       },
+      'category':"entertainment",
       "author": "Don Dahlmann",
       "title": "Das große Batterie-Versagen Europas",
       "description": "Die Übernahme von Northvolt durch ein US-Startup dokumentiert das Versagen der EU beim Aufbau von Schlüsseltechnologien.",
@@ -122,6 +131,7 @@ const articlesData  = [
         "id": 10,
         "name": "Biztoc.com"
       },
+      'category':"entertainment",
       "author": "benzinga.com",
       "title": "Mysterious Compact Tesla Vehicle Spotted At Giga Texas Factory — Sparking Cybercab, Affordable Model Speculation",
       "description": "A compact Tesla vehicle was spotted at Tesla Inc.'s (NASDAQ:TSLA) Giga Factory in Texas amid affordable vehicle rumors.\nUnknown Tesla Vehicle Spotted In Texas\nThe vehicle was first spotted in drone footage of Tesla's Giga Factory in Texas, covered in a protec…",
@@ -135,6 +145,7 @@ const articlesData  = [
         "id": 11,
         "name": "ETF Daily News"
       },
+      'category':"entertainment",
       "author": "MarketBeat News",
       "title": "Promising Automotive Stocks To Watch Now – August 29th",
       "description": "NVIDIA, Tesla, Taiwan Semiconductor Manufacturing, Micron Technology, and QUALCOMM are the five Automotive stocks to watch today, according to MarketBeat’s stock screener tool. Automotive stocks are shares of publicly traded companies involved in the design, …",
@@ -148,6 +159,7 @@ const articlesData  = [
         "id": 12,
         "name": "Ixbt.com"
       },
+      'category':"technology",
       "author": "jin@ixbt.com (Jin)",
       "title": "У собранных в России Xcite X-Cross 7 выявили особенность: АвтоВАЗ дал рекомендации по ремонту задних арок",
       "description": "АвтоВАЗ направил дилерским центрам рекомендации по ремонту кроссоверов Xcite X-Cross 7 для предотвращения повреждений лакокрасочного покрытия (ЛКП) арок задних колес.  Как сообщает источник, ознакомившийся с информационным письмом, для обеспечения качественно…",
@@ -161,6 +173,7 @@ const articlesData  = [
         "id": 13,
         "name": "Telegraaf.nl"
       },
+      'category':"technology",
       "author": "Gert van Harskamp",
       "title": "Autoverkoop gedaald in augustus; ook minder elektrische auto’s op kenteken gezet, verkoop Tesla gehalveerd",
       "description": "Er zijn in Nederland afgelopen maand minder nieuwe auto’s op kenteken gezet dan dezelfde maand een jaar geleden. De verkoop van volledig elektrische auto’s is ook licht gedaald. De automobilist laat Tesla volledig links liggen.",
@@ -174,6 +187,7 @@ const articlesData  = [
         "id": 14,
         "name": "ETF Daily News"
       },
+      'category':"health",
       "author": "MarketBeat News",
       "title": "Promising Energy Stocks To Consider – August 29th",
       "description": "Tesla, Broadcom, and IREN are the three Energy stocks to watch today, according to MarketBeat’s stock screener tool. Energy stocks are shares of companies involved in the production, exploration, refinement and distribution of energy resources such as oil, na…",
@@ -187,6 +201,7 @@ const articlesData  = [
         "id": 15,
         "name": "ETF Daily News"
       },
+      'category':"health",
       "author": "MarketBeat News",
       "title": "Promising Electric Vehicle Stocks To Watch Now – August 29th",
       "description": "Tesla, Baidu, Rivian Automotive, NIO, Lucid Group, XPeng, and Enphase Energy are the seven Electric Vehicle stocks to watch today, according to MarketBeat’s stock screener tool. Electric vehicle stocks are shares of publicly traded companies involved in the d…",
@@ -200,6 +215,7 @@ const articlesData  = [
         "id": 16,
         "name": "Frandroid"
       },
+      'category':"health",
       "author": "Marie Lizak",
       "title": "BYD a-t-il vraiment dépassé Tesla en Europe sur la voiture électrique ? Oui et non, on vous explique tout",
       "description": "Selon les chiffres du mois de juillet, BYD aurait dépassé Tesla en Europe. Mais pas sûr que ce succès soit exclusivement dû aux ventes de voitures électriques...",
