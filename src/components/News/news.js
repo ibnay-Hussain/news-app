@@ -69,6 +69,10 @@ export default class news extends Component {
                 <h2 className='container text-center'>Top Headlines</h2>
                 {this.state.loading && <Spinner />}
                 <div className="container">
+                    {/* if no category data found */}
+                    {!this.state.loading && this.state.articles.length === 0 && (
+                    <p className="text-center mt-4">No articles found for category {this.props.category}.</p>
+                    )}
                     <div className="row">
                         {!this.state.loading && this.state.articles.map((element) => {
                            return <div key={element.url} className="col-12 col-md-6 col-lg-4 p-0 m-0">
@@ -78,7 +82,7 @@ export default class news extends Component {
                     </div>
                     <div className="container d-flex justify-content-between p-0 m-0 mt-4 mb-4">
                         <button disabled={this.state.page<=1} className="btn btn-md btn-primary" onClick={this.handlePreviousClick}>&larr; Previous</button>
-                        <span className="text-center mt-3">Page {this.state.page}</span>
+                        <span className="text-center">Page {this.state.page}</span>
                         <button disabled={this.state.page >= Math.ceil(16 / this.pageSize) || this.state.articles.length < this.pageSize} className="btn btn-md btn-primary" onClick={this.handleNextClick}>Next &rarr;</button>
                     </div>
                 </div>
