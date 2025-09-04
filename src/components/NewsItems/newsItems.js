@@ -7,7 +7,7 @@ export default class NewsItems extends Component {
     let { title, description, imageUrl, newsUrl} = this.props;
     return (
       <div className='container my-1'>
-        <div className="card" style={{ width: '19rem'}}>
+        <div className="card" >
           <img src={imageUrl} className="card-img-top" alt="news" style={{ height: '150px', objectFit: 'cover' }}/>
           <div className="card-body">
             <h5 className="card-title heading-limit">{title}</h5>
