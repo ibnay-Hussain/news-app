@@ -17,15 +17,20 @@ export default class news extends Component {
 
     fetchArticles = async (page) => {
         // const Url = `https://newsapi.org/v2/everything?q=tesla&from=2025-08-02&sortBy=publishedAt&page=${page}&this.pageSize=${this.pageSize}&apiKey=70d0b7f4bc7c49d6927b3b7595385f6b`;
-        this.setState({ loading: true });
         // const data = await fetch(Url);
         // const parseData = await data.json();
+        this.setState({ loading: true });
+        const { category } = this.props;
         const start = (page - 1) * this.pageSize;
         const end = page * this.pageSize;
+
+        const filteredArticles = articlesData.filter(
+            (article) => article.category === category
+          );        
     
         setTimeout(() => {
             this.setState({
-                articles: articlesData.slice(start, end),
+                articles: filteredArticles.slice(start, end),
                 page: page,
                 loading: false
             });   
