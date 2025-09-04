@@ -42,11 +42,19 @@ export default class news extends Component {
         this.fetchArticles(this.state.page);
     }
 
+    async componentDidUpdate(prevProps) {
+        if(this.props.category !== prevProps.category) {
+            this.setState({ page: 1 }, () => {
+                this.fetchArticles(1);
+            });            
+        }
+    }
+
     handlePreviousClick = async () => {
         if (this.state.page > 1) {
           await this.fetchArticles(this.state.page - 1);
         }
-    };
+    }
       
     handleNextClick = async () => {
         const maxPages = Math.ceil(16 / this.pageSize);
