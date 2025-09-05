@@ -24,9 +24,14 @@ export default class news extends Component {
         const start = (page - 1) * this.pageSize;
         const end = page * this.pageSize;
 
-        const filteredArticles = articlesData.filter(
+        let filteredArticles = articlesData;
+
+        if(category)
+        {
+        filteredArticles = articlesData.filter(
             (article) => article.category === category
-          );        
+          ); 
+        }       
     
         setTimeout(() => {
             this.setState({
@@ -66,7 +71,7 @@ export default class news extends Component {
     render() {
         return (
             <>
-                <h2 className='container text-center'>Top Headlines</h2>
+                <h2 className='container text-center'>{this.props.title}</h2>
                 {this.state.loading && <Spinner />}
                 <div className="container">
                     {/* if no category data found */}
@@ -76,7 +81,7 @@ export default class news extends Component {
                     <div className="row">
                         {!this.state.loading && this.state.articles.map((element) => {
                            return <div key={element.url} className="col-12 col-md-6 col-lg-4 p-0 m-0">
-                                <NewsItems title={element.title} description={element.description} imageUrl={element.urlToImage} newsUrl={element.url} />
+                                <NewsItems data={element} />
                             </div>
                         })}
                     </div>
