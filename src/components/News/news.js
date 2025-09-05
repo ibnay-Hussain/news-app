@@ -71,7 +71,7 @@ export default class news extends Component {
     render() {
         return (
             <>
-                <h2 className='container text-center'>Top Headlines</h2>
+                <h2 className='container text-center'>{this.props.title}</h2>
                 {this.state.loading && <Spinner />}
                 <div className="container">
                     {/* if no category data found */}
