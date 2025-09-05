@@ -24,9 +24,14 @@ export default class news extends Component {
         const start = (page - 1) * this.pageSize;
         const end = page * this.pageSize;
 
-        const filteredArticles = articlesData.filter(
+        let filteredArticles = articlesData;
+
+        if(category)
+        {
+        filteredArticles = articlesData.filter(
             (article) => article.category === category
-          );        
+          ); 
+        }       
     
         setTimeout(() => {
             this.setState({
