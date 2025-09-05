@@ -7,12 +7,13 @@ export default class NewsItems extends Component {
     let { data } = this.props;
     return (
       <div className='container my-1'>
+        <span className="position-relative badge rounded-pill text-bg-danger" style={{left:'80%',zIndex:'1'}}>{data.source.name}</span>
         <div className="card" >
           <img src={data.urlToImage} className="card-img-top" alt="news" style={{ height: '150px', objectFit: 'cover' }}/>
           <div className="card-body">
             <h5 className="card-title heading-limit">{data.title}</h5>
             <p className="card-text text-truncate-multiline">{data.description}</p>
-            <p className="car"><small className='text-muted'>Last updated: {data.publishedAt}</small></p>
+            <p className="car"><small className='text-muted'>By {data.author} on {new Date(data.publishedAt).toGMTString()}</small></p>
             <a href={data.url} target='_blank' rel="noreferrer" className="btn btn-primary btn-sm">Read More</a>
           </div>
         </div>
