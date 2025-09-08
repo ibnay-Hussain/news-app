@@ -19,6 +19,7 @@ export default class news extends Component {
         // const Url = `https://newsapi.org/v2/everything?q=tesla&from=2025-08-02&sortBy=publishedAt&page=${page}&this.pageSize=${this.pageSize}&apiKey=70d0b7f4bc7c49d6927b3b7595385f6b`;
         // const data = await fetch(Url);
         // const parseData = await data.json();
+        this.props.setProgress(20);
         this.setState({ loading: true });
         const { category } = this.props;
         const start = (page - 1) * this.pageSize;
@@ -37,9 +38,10 @@ export default class news extends Component {
             this.setState({
                 articles: filteredArticles.slice(start, end),
                 page: page,
-                loading: false
+                loading: false,
             });   
-        },500);
+            this.props.setProgress(100);
+        },2000);
     
     }; 
 

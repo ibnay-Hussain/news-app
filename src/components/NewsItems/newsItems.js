@@ -7,8 +7,8 @@ export default class NewsItems extends Component {
     let { data } = this.props;
     return (
       <div className='container my-1'>
-        <span className="position-relative badge rounded-pill text-bg-danger" style={{left:'80%',zIndex:'1'}}>{data.source.name}</span>
-        <div className="card" >
+        <div className="card" style={{display:'flex',justifyContent:'flex-start'}} >
+          <span className="position-absolute badge rounded-pill text-bg-danger" style={{right:'0'}} >{data.source.name}</span>
           <img src={data.urlToImage} className="card-img-top" alt="news" style={{ height: '150px', objectFit: 'cover' }}/>
           <div className="card-body">
             <h5 className="card-title heading-limit">{data.title}</h5>
