@@ -63,7 +63,7 @@ export default function News(props) {
 
     return (
         <>
-            <h2 className='container text-center'>{props.title}</h2>
+            <h2 className='container text-center' style={{marginTop:'80px'}}>{props.title}</h2>
             {loading && <Spinner />}
             <div className="container">
                 {/* if no category data found */}

@@ -4,7 +4,7 @@ import './navbar.css';
 
 export default function Navbar() {
     return (
-        <div className="bg-dark mb-4">
+        <div className="bg-dark mb-4 fixed-top">
             <nav className="container navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container-fluid justify-center">
                 <Link className="navbar-brand" to="/">NewsApp</Link>
