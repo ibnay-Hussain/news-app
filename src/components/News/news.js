@@ -1,29 +1,24 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react';
 import NewsItems from '../NewsItems/newsItems';
 import articlesData from '../../data/articles';
 import Spinner from '../Spinner/spinner';
 
-export default class news extends Component {
+export default function News(props) {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            articles: [],
-            loading: false,
-            page: 1
-        }
-        this.pageSize = props.pageSize;
-    }
+    const [articles, setArticles] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const [page, setPage] = useState(1);
+    const pageSize = props.pageSize;
 
-    fetchArticles = async (page) => {
+    const fetchArticles = async (page) => {
         // const Url = `https://newsapi.org/v2/everything?q=tesla&from=2025-08-02&sortBy=publishedAt&page=${page}&this.pageSize=${this.pageSize}&apiKey=70d0b7f4bc7c49d6927b3b7595385f6b`;
         // const data = await fetch(Url);
         // const parseData = await data.json();
-        this.props.setProgress(20);
-        this.setState({ loading: true });
-        const { category } = this.props;
-        const start = (page - 1) * this.pageSize;
-        const end = page * this.pageSize;
+        props.setProgress(20);
+        setLoading(true);
+        const { category } = props;
+        const start = (page - 1) * pageSize;
+        const end = page * pageSize;
 
         let filteredArticles = articlesData;
 
@@ -35,65 +30,59 @@ export default class news extends Component {
         }       
     
         setTimeout(() => {
-            this.setState({
-                articles: filteredArticles.slice(start, end),
-                page: page,
-                loading: false,
-            });   
-            this.props.setProgress(100);
+            setArticles(filteredArticles.slice(start, end));
+            setPage(page);
+            setLoading(false);  
+            props.setProgress(100);
         },2000);
     
     }; 
 
-    async componentDidMount() {
-        this.fetchArticles(this.state.page);
-    }
+    useEffect(() => {
+        fetchArticles(page);
+    }, []);
 
-    async componentDidUpdate(prevProps) {
-        if(this.props.category !== prevProps.category) {
-            this.setState({ page: 1 }, () => {
-                this.fetchArticles(1);
-            });            
-        }
-    }
+    useEffect(() => {
+        setPage(1);
+        fetchArticles(1);
+        document.title = `${props.title} - NewsApp`;
+      }, [props.category]);
 
-    handlePreviousClick = async () => {
-        if (this.state.page > 1) {
-          await this.fetchArticles(this.state.page - 1);
+    const handlePreviousClick = async () => {
+        if (page > 1) {
+          await fetchArticles(page - 1);
         }
     }
       
-    handleNextClick = async () => {
-        const maxPages = Math.ceil(16 / this.pageSize);
-        if (this.state.page < maxPages) {
-          await this.fetchArticles(this.state.page + 1);      
+    const handleNextClick = async () => {
+        const maxPages = Math.ceil(16 / pageSize);
+        if (page < maxPages) {
+          await fetchArticles(page + 1);      
         }
     }
 
-    render() {
-        return (
-            <>
-                <h2 className='container text-center'>{this.props.title}</h2>
-                {this.state.loading && <Spinner />}
-                <div className="container">
-                    {/* if no category data found */}
-                    {!this.state.loading && this.state.articles.length === 0 && (
-                    <p className="text-center mt-4">No articles found for category {this.props.category}.</p>
-                    )}
-                    <div className="row">
-                        {!this.state.loading && this.state.articles.map((element) => {
-                           return <div key={element.url} className="col-12 col-md-6 col-lg-4 p-0 m-0">
-                                <NewsItems data={element} />
-                            </div>
-                        })}
-                    </div>
-                    <div className="container d-flex justify-content-between p-0 m-0 mt-4 mb-4">
-                        <button disabled={this.state.page<=1} className="btn btn-md btn-primary" onClick={this.handlePreviousClick}>&larr; Previous</button>
-                        <span className="text-center">Page {this.state.page}</span>
-                        <button disabled={this.state.page >= Math.ceil(16 / this.pageSize) || this.state.articles.length < this.pageSize} className="btn btn-md btn-primary" onClick={this.handleNextClick}>Next &rarr;</button>
-                    </div>
+    return (
+        <>
+            <h2 className='container text-center'>{props.title}</h2>
+            {loading && <Spinner />}
+            <div className="container">
+                {/* if no category data found */}
+                {!loading && articles.length === 0 && (
+                <p className="text-center mt-4">No articles found for category {props.category}.</p>
+                )}
+                <div className="row">
+                    {!loading && articles.map((element) => {
+                        return <div key={element.url} className="col-12 col-md-6 col-lg-4 p-0 m-0">
+                            <NewsItems data={element} />
+                        </div>
+                    })}
                 </div>
-            </>
-        )
-    }
+                <div className="container d-flex justify-content-between p-0 m-0 mt-4 mb-4">
+                    <button disabled={page<=1} className="btn btn-md btn-primary" onClick={handlePreviousClick}>&larr; Previous</button>
+                    <span className="text-center">Page {page}</span>
+                    <button disabled={page >= Math.ceil(16 / pageSize) || articles.length < pageSize} className="btn btn-md btn-primary" onClick={handleNextClick}>Next &rarr;</button>
+                </div>
+            </div>
+        </>
+    )
 }

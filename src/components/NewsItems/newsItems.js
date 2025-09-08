@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import './newsItems.css';
 
-export default class NewsItems extends Component {
+export default function NewsItems(props) {
 
-  render() {
-    let { data } = this.props;
+    let { data } = props;
     return (
       <div className='container my-1'>
         <div className="card" style={{display:'flex',justifyContent:'flex-start'}} >
@@ -19,5 +18,4 @@ export default class NewsItems extends Component {
         </div>
       </div>
     )
-  }
 }
